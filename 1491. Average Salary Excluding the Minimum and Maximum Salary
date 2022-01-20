@@ -1,0 +1,15 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public double average(int[] salary) {
+        final int maxSalary = Arrays.stream(salary).max().getAsInt();
+        final int minSalary = Arrays.stream(salary).min().getAsInt();
+        final Set<Integer> exclude = Set.of(minSalary, maxSalary);
+        int sumSalary = 0;
+        for (int sal : salary) {
+            if (!exclude.contains(sal)) sumSalary += sal;
+        }
+        return (double) sumSalary / (salary.length - 2);
+    }
+}
