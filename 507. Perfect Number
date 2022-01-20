@@ -1,0 +1,16 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+        if (num == 1) return false;
+
+        int sum = 0;
+        for (int divisor = 2; divisor * divisor <= num; divisor++) {
+            if (num % divisor == 0) {
+                sum += divisor + num / divisor;
+            }
+        }
+        return sum + 1 == num;
+    }
+}
