@@ -1,0 +1,24 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> checkForDuplicatesSet = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            int preSize = checkForDuplicatesSet.size();
+            int currentNum = nums[i];
+            checkForDuplicatesSet.add(currentNum);
+            if (checkForDuplicatesSet.size() == preSize) {
+                int dupK = k, reverse = i - 1;
+                while (dupK > 0) {
+                    if (nums[reverse] == currentNum) {
+                        return true;
+                    }
+                    dupK--;
+                    reverse--;
+                }
+            }
+        }
+        return false;
+    }
+}
