@@ -1,0 +1,15 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        int lastDigit = n % 2, current;
+        while (n > 0) {
+            n >>= 1;
+            current = n % 2;
+            if (lastDigit == current) return false;
+            lastDigit = current;
+        }
+        return true;
+    }
+}
