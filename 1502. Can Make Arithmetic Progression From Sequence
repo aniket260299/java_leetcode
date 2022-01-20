@@ -1,0 +1,19 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        final int a = Arrays.stream(arr).min().getAsInt();
+        final int l = Arrays.stream(arr).max().getAsInt();
+        if (a == l) return true;
+        if ((l - a) % (arr.length - 1) != 0) return false;
+        final int d = (l - a) / (arr.length - 1);
+        Set<Integer> elements = new HashSet<>();
+        for (int number : arr) {
+            if (elements.contains(number)) return false;
+            if ((number - a) % d != 0) return false;
+            elements.add(number);
+        }
+        return true;
+    }
+}
