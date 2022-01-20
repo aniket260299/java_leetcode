@@ -1,0 +1,15 @@
+/**
+ * @author Aniket
+ */
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Set<Integer> elements = new HashSet<>();
+        for (int element : arr) {
+            if (elements.contains(element * 2) || (element % 2 == 0 && elements.contains(element / 2))) {
+                return true;
+            }
+            elements.add(element);
+        }
+        return false;
+    }
+}
